@@ -1,0 +1,18 @@
+<form [formGroup]="productForm" (submit)="onFormSubmit()">
+  <div>
+    <label for="name">Name: </label>
+    <input type="text" id="name">
+  </div>
+  <br>
+  <div>
+    <label for="frontImage">Front Image: </label>
+    <input (change)="onFileSelected($event, 'FRONT')" type="file" id="frontImage">
+  </div>
+  <br>
+  <div>
+    <label for="backImage">Back Image: </label>
+    <input (change)="onFileSelected($event, 'BACK')" type="file" id="backImage">
+  </div>
+  <br>
+  <button [disabled]="productForm.invalid && !imgFront && !imgBack">Submit</button>
+</form>
